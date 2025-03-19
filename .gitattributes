@@ -1,3 +1,4 @@
 * filter=git-crypt diff=git-crypt
 .gitattributes !filter !diff
 *.pdf !filter !diff
+*.jpg !filter !diff
