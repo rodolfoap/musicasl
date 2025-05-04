@@ -1,4 +1,4 @@
-name: Create Release
+name: Create Release with PDF
 
 on:
   push:
@@ -12,7 +12,7 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Create Release
@@ -26,7 +26,7 @@ jobs:
 
       - name: Rename and Upload PDF to Release
         run: |
-          cp pdf/sl.pdf songbook.pdf
+          cp pdf/sl.pdf songbook_${{github.ref_name}}.pdf
           gh release upload ${{ github.ref_name }} songbook_${{github.ref_name}}.pdf --clobber
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
