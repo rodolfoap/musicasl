@@ -26,7 +26,7 @@ jobs:
 
       - name: Rename and Upload PDF to Release
         run: |
-          cp pdf/sl.pdf songbook_${{github.ref_name}}.pdf
+          cp book.pdf songbook_${{github.ref_name}}.pdf
           gh release upload ${{ github.ref_name }} songbook_${{github.ref_name}}.pdf --clobber
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
